@@ -108,8 +108,15 @@ const EditAdd = () => {
 
   return (
     <div className="editcontainer">
+      <p
+        style={{
+          fontWeight: "bold",
+          padding: 20,
+        }}
+      >
+        Form
+      </p>
       <form style={{ paddingBottom: 10 }}>
-        <p>Form</p>
         <div className="inputContainer">
           <Typography variant="body1" sx={{ marginRight: 10, width: 150 }}>
             Name
