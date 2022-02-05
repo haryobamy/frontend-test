@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastProvider } from "react-toast-notifications";
+import ApiProvider from "./components/ApiProvider";
+import Dashboard from "./pages/Dashboard";
+import "./main.css";
+import { Routes, Route, BrowserRouter, Switch } from "react-router-dom";
+import EditUser from "./pages/EditUser";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ToastProvider placement="top-right" autoDismiss>
+        <ApiProvider />
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Dashboard />} />
+
+            {/* <Route path="/adduser">
+            <Dashboard />
+          </Route> */}
+            <Route path="/edituser" element={<EditUser />} />
+          </Routes>
+        </BrowserRouter>
+      </ToastProvider>
+    </>
   );
 }
 
