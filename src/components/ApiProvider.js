@@ -16,7 +16,6 @@ const ApiProvider = (props) => {
       )
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
           dispatch(getAllUser([...result]));
         });
       //   if (response) {

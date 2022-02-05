@@ -23,6 +23,7 @@ const UserTable = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
+  const allData = allusers || filterTableData;
 
   function handleClose() {
     setIsOpen(false);
@@ -39,7 +40,7 @@ const UserTable = (props) => {
 
   return (
     <Box sx={{ width: "100%", background: "whitesmoke" }}>
-      {filterTableData.length > 0 ? (
+      {allData.length > 0 ? (
         <Table>
           <TableHead sx={{ background: "gray" }}>
             <TableRow>
@@ -53,7 +54,7 @@ const UserTable = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filterTableData.map((user, i) => (
+            {allData.map((user, i) => (
               <TableRow key={i}>
                 <TableCell>{user?.id}</TableCell>
                 <TableCell>{user?.name}</TableCell>

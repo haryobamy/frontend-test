@@ -9,6 +9,9 @@ const Dashboard = () => {
   const [filterTableData, setfilterTableData] = useState([]);
 
   useEffect(() => {
+    setfilterTableData(allusers);
+  }, []);
+  useEffect(() => {
     switch (selectedFilter) {
       case "asc":
         return setfilterTableData(
@@ -28,24 +31,6 @@ const Dashboard = () => {
         return setfilterTableData(allusers);
     }
   }, [selectedFilter]);
-
-  function handleSort() {
-    if (selectedFilter === "asc" && selectedFilter !== "") {
-      setfilterTableData(
-        allusers.sort(
-          (a, b) => a.username?.charCodeAt(0) - b.username?.charCodeAt(0)
-        )
-      );
-    } else {
-      return setfilterTableData(
-        allusers.sort(
-          (a, b) => a.username?.charCodeAt(0) - b.username?.charCodeAt(0)
-        )
-      );
-    }
-  }
-
-  console.log(selectedFilter);
 
   return (
     <div className="table_container">
